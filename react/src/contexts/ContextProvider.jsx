@@ -1,14 +1,14 @@
 import { createContext, useContext, useState } from "react";
 
+// createContext function accept default value. important for autocomplete purpose
 const StateContext = createContext({
-    // this object is default value. important for autocomplet purpose for vscode
     user: null,
     token: null,
     setUser: () => {},
     setToken: () => {}
 })
 
-// now create context provider
+// Now create context provider
 export const ContextProvider = ({children}) => {
 
     const [user, setUser] = useState({})
