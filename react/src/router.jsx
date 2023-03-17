@@ -1,45 +1,28 @@
 import {createBrowserRouter} from 'react-router-dom'
-import DefaultLayout from './components/DefaultLayout';
-import GuestLayout from './components/GuestLayout';
 import Dashboard from './views/Dashboard';
 import Login from './views/Login';
 import NotFound from './views/NotFound';
 import Signup from './views/Signup';
 import Users from './views/Users';
 import Home from './views/Home';
+import Protected from './components/Protected';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <DefaultLayout />,
-        children: [
-            {
-                path: '/',
-                element: <Home />
-            },
-            {
-                path: '/users',
-                element: <Users />
-            },
-            {
-                path: '/dashboard',
-                element: <Dashboard />
-            }
-        ]
+        element: <Home />
     },
     {
-        path: '/',
-        element: <GuestLayout />,
-        children: [
-            {
-                path: '/login',
-                element: <Login />
-            },
-            {
-                path: '/signup',
-                element: <Signup />
-            },
-        ]
+        path: '/login',
+        element: <Login />
+    },
+    {
+        path: '/dashboard',
+        element: <Protected><Dashboard /></Protected>
+    },
+    {
+        path: '/users',
+        element: <Protected><Users /></Protected>
     },
     {
         path: '*',
