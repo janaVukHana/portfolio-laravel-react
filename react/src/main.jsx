@@ -2,7 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { ContextProvider } from './contexts/ContextProvider'
-import './index.css'
+// import './index.css'
+import './reset.css'
+import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
