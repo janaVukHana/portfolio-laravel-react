@@ -27,7 +27,7 @@ export default function Home() {
         <>
             <header className="light-section">
                 <div className="inner-container">
-                    <h1>I'm Ilija<br /><span>a web developer</span></h1>
+                    <h1 id="intro">I'm Ilija<br /><span>a web developer</span></h1>
                 </div>
             </header>
             

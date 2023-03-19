@@ -1,6 +1,21 @@
 import { BrowserRouter, Link } from "react-router-dom";
+import axiosClient from "../axios-client";
+import { useStateContext } from "../contexts/ContextProvider";
 
 export default function Navbar() {
+
+    const {setUser, setToken} = useStateContext()
+
+    const onLogout = (e) => {
+        e.preventDefault()
+        console.log('logout btn pushed');
+
+        axiosClient.post('/logout')
+            .then(() => {
+                setUser({})
+                setToken(null)
+            })
+    }
 
     return (
             <nav id="home" className="light-section">
@@ -13,7 +28,7 @@ export default function Navbar() {
                     <li><Link className="about-me" to="/contact">Contact</Link></li>
                     <li><Link className="work" to="/dashboard">Dashboard</Link></li>
                     <li><Link className="about-me" to="/login">Login</Link></li>
-                    <li><button>Logout</button></li>
+                    <li><a href="#" onClick={onLogout}>Logout</a></li>
                 </ul>
             </nav>        
     )

@@ -3,7 +3,7 @@ export default function Users() {
         <section id="contact" className="light-section">
         {/* <!-- CONTACT SECTION --> */}
         <div className="inner-container">
-            <h2>Let's work together...</h2>
+            <h1>Let's work together...</h1>
             <h3>How do you take your coffee?</h3>
             <div className="contact-info">
                 <p>
