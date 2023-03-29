@@ -1,6 +1,6 @@
 export default function Users() {
     return (
-        <section id="contact" className="light-section">
+        <main id="contact" className="light-section">
         {/* <!-- CONTACT SECTION --> */}
         <div className="inner-container">
             <h1>Let's work together...</h1>
@@ -36,6 +36,6 @@ export default function Users() {
                 <p>Your form has been submited!</p>
             </div>
         </div>
-    </section>
+    </main>
     )
 }

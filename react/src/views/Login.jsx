@@ -46,21 +46,21 @@ export default function Login() {
     }
 
     return (
-        <section id="contact" className="light-section">
+        <main  className="light-section" style={{flex: '1 1 auto'}}>
         {/* <!-- LOGIN SECTION --> */}
             <div className="inner-container">
                 <h1>Login</h1>
                 
                 <form onSubmit={onSubmit}>
                     <label htmlFor="email"></label>
-                    <input ref={emailRef} type="email" id="email" placeholder="Your email" autoComplete="off"
+                    <input ref={emailRef} type="email" id="email" placeholder="Your email" autoComplete="on"
                          />
 
                     <label htmlFor="password"></label>
-                    <input ref={passwordRef} type="password" id="password" placeholder="Your password" autoComplete="off"
+                    <input ref={passwordRef} type="password" id="password" placeholder="Your password" autoComplete="on"
                          />
                     
-                    <button type="submit">LOGIN</button>
+                    <button className="btn-block" type="submit">LOGIN</button>
                 </form>
 
                 {errors && <div>
@@ -70,6 +70,6 @@ export default function Login() {
                 </div>}
                 
             </div>
-        </section>
+        </main>
     )
 }

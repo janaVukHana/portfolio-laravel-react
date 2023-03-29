@@ -1,11 +1,13 @@
 import { createContext, useContext, useState } from "react";
 
-// createContext function accept default value. important for autocomplete purpose
+// createContext function accept DEFAULT VALUE. Default value is important for autocomplete purpose.
 const StateContext = createContext({
     user: null,
     token: null,
     setUser: () => {},
-    setToken: () => {}
+    setToken: () => {},
+    notification: null,
+    setNotification: () => {}
 })
 
 // Now create context provider
@@ -13,6 +15,7 @@ export const ContextProvider = ({children}) => {
 
     const [user, setUser] = useState({})
     const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'))
+    const [notification, setNotification] = useState('')
     // const [token, _setToken] = useState(null)
 
     const setToken = (token) => {
@@ -29,7 +32,9 @@ export const ContextProvider = ({children}) => {
             user,
             token,
             setUser,
-            setToken
+            setToken,
+            notification,
+            setNotification
         }}>
             {children}
         </StateContext.Provider>

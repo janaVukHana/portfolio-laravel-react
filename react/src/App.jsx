@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-// import router from './router'
 import Navbar from "./components/Navbar"
 import Footer from './components/Footer'
 import Dashboard from './views/Dashboard'
@@ -10,13 +9,25 @@ import Home from './views/Home'
 import NotFound from './views/NotFound'
 import Protected from './components/Protected'
 import ScrollToTop from './components/ScrollToTop'
+import { useStateContext } from './contexts/ContextProvider'
+import ProjectForm from './views/ProjectForm'
 
 function App() {
+
+  const {notification, setNotification} = useStateContext()
+
+  useEffect(() => {
+    if(notification) {
+      setTimeout(() => {
+        setNotification(null)
+      }, 5000)
+    }
+  })
 
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="App container">
+      <div className="App container box" style={{minHeight: '100vh'}}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,9 +36,12 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/projects/new" element={<Protected><ProjectForm key="projectCreate" /></Protected>} />
+          <Route path="/projects/:id" element={<Protected><ProjectForm key="projectUpdate" /></Protected>} />
         </Routes>
 
         <Footer />
+        {notification && <p className='notification'>{notification}</p>}
       </div>
     </BrowserRouter>
   )

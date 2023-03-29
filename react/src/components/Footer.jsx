@@ -4,8 +4,8 @@ export default function Footer() {
 
     return (
         <>
-        <div className="light-section" style={{padding: 0, height: 20}}></div>
-        <footer className="dark-section">
+        <div className="light-section" style={{padding: '0px', height: '10px', flex: '0 1 auto'}}></div>
+        <footer className="dark-section" style={{flex: '0 1 auto'}}>
                 <div className="inner-container">
                     <ul>
                         {/* <!-- <li>
