@@ -79,7 +79,7 @@ export default function ProjectForm() {
                 {!id && <h1>Add new project</h1>}
 
                 {errors && Object.values(errors).map(err => {
-                    return <div style={{color: 'white', backgroundColor: 'red', padding: '10px'}}>{err[0]}</div>
+                    return <div className='error'>{err[0]}</div>
                 })}
                 
                 <form onSubmit={onSubmit}>

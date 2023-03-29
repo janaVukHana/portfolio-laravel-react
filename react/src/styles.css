@@ -129,6 +129,18 @@ button:hover {
   margin: 0 auto;
 }
 
+.center-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  padding: 1rem;
+  color: #fff;
+  background-color: #c50d0d;
+}
+
 .row {
   display: flex;
   justify-content: space-between;
