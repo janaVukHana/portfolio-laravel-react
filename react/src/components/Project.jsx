@@ -18,6 +18,7 @@ export default function Project() {
         axiosClient.get('/projects')
             .then(({data}) => {
                 console.log('from then');
+                console.log(data.data)
                 setLoading(false)
                 setProjects(data.data)
             })
@@ -54,6 +55,7 @@ export default function Project() {
                                     id={project.id} 
                                     title={project.title} 
                                     url={project.url} 
+                                    img={project.image}
                                     created_at={project.created_at}
                                     deleteProduct={getProjects}
                                 />

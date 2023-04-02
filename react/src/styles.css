@@ -97,6 +97,12 @@ img {
   display: block;
 }
 
+.thumbnail-img {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+}
+
 a, button.btn-logout {
   display: inline-block;
   color: inherit;
@@ -327,6 +333,31 @@ textarea:focus {
   color: #fff;
   border-bottom: 3px solid #fff;
   outline: none;
+}
+
+
+input[type=file] {
+  display: none;
+}
+
+div.file-input {
+  display: block;
+  font-weight: bold;
+  color: #393e46;
+  background-color: #fff;
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0 1.5rem;
+  border: 3px solid #393e46;
+}
+
+div.file-input label {
+  cursor: pointer;
+  background-color: red;
+}
+
+div.file-input span {
+  background-color: green;
 }
 
 button {

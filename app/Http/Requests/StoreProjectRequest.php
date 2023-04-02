@@ -23,7 +23,8 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => ['required', 'min:4'],
-            'url' => ['required', 'min:6']
+            'url' => ['required', 'min:6'],
+            'image' => ['image', 'mimes:jpeg,jpg,png']
         ];
     }
 }

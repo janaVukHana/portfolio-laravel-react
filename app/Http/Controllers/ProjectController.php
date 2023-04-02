@@ -21,9 +21,15 @@ class ProjectController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreProjectRequest $request)
-    {
+    {   
         $projectInfo = $request->validated();
 
+        $image = request()->file('image');
+        $image_name = time().'.'.$image->getClientOriginalExtension();
+        $image->move('images/',$image_name);
+
+        $projectInfo['image'] = $image_name;
+                
         $project = Project::create($projectInfo);
 
 

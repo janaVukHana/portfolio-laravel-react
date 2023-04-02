@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axiosClient from '../axios-client';
 import { useStateContext } from '../contexts/ContextProvider';
@@ -15,8 +15,11 @@ export default function ProjectForm() {
     const [project, setProject] = useState({
         'id': null,
         'title': '',
-        'url': ''
+        'url': '',
+        // 'image': null
     })
+    const fileRef = useRef()
+    const [fileName, setFileName] = useState()
     
     if(id) {
         useEffect(() => {
@@ -38,7 +41,9 @@ export default function ProjectForm() {
 
         setErrors(null)
 
+        // update
         if(project.id) {
+            // TODO: new FormData procedure
             axiosClient.put('/projects/'+project.id, project)
                 .then(() => {
                     console.log('user is updated');
@@ -52,11 +57,14 @@ export default function ProjectForm() {
                         setErrors(response.data.errors)
                     }
                 })
+        // create 
         } else {
-            axiosClient.post('/projects', project)
+            const formData = new FormData();
+            formData.append('title', project.title);
+            formData.append('url', project.url);
+            formData.append('image', project.image);
+            axiosClient.post('/projects', formData)
                 .then(({data}) => {
-                    console.log('project is stored');
-                    console.log(data);
                     setNotification('Project is stored')
                     navigate('/dashboard')
                 })
@@ -102,6 +110,22 @@ export default function ProjectForm() {
                         placeholder="Your project url" 
                         autoComplete="off"
                     />
+
+                    <div className="file-input">
+                        <label htmlFor="image">
+                            Choose image
+                            <input
+                                ref={ fileRef }
+                                onChange={e => {
+                                    setFileName(fileRef.current.files[0].name)
+                                    setProject({...project, image: fileRef.current.files[0]})
+                                }}
+                                type="file"
+                                id="image"
+                            />
+                            <span id="imageName"> {fileName}</span>
+                        </label>
+                    </div>
                     
                     <button className={`btn-block ${id ? 'btn-edit':'btn-add'}`} type="submit">
                         {id && 'Edit'}

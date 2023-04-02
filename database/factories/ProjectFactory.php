@@ -19,7 +19,7 @@ class ProjectFactory extends Factory
         return [
             'title' => fake()->title(),
             'url' => fake()->url(),
-            // 'image' => fake()->image()
+            'image' => fake()->image()
         ];
     }
 }
