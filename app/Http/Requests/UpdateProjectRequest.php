@@ -23,7 +23,9 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'title' => ['required', 'min:4'],
-            'url' => ['required', 'min:4']
+            'url' => ['required', 'min:4'],
+            'image' => ['image', 'mimes:jpeg,jpg,png']
+
         ];
     }
 }

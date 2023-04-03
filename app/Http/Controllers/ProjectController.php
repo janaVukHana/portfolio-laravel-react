@@ -24,14 +24,17 @@ class ProjectController extends Controller
     {   
         $projectInfo = $request->validated();
 
-        $image = request()->file('image');
-        $image_name = time().'.'.$image->getClientOriginalExtension();
-        $image->move('images/',$image_name);
+        // TODO: because image is required you don't need if statement...
+        if(request()->file('image')) {
 
-        $projectInfo['image'] = $image_name;
+            $image = request()->file('image');
+            $image_name = time().'.'.$image->getClientOriginalExtension();
+            $image->move('images/',$image_name);
+    
+            $projectInfo['image'] = $image_name;
+        }
                 
         $project = Project::create($projectInfo);
-
 
         return response(new ProjectResource($project), 201);
         // 201 == the request has succeeded and has led to the creation of a resource.
@@ -51,6 +54,15 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $projectInfoUpdated = $request->validated();
+
+        if(request()->file('image')) {
+            // TODO: delete prev image
+            $image = request()->file('image');
+            $image_name = time().'.'.$image->getClientOriginalExtension();
+            $image->move('images/',$image_name);
+    
+            $projectInfoUpdated['image'] = $image_name;
+        }
 
         $project->update($projectInfoUpdated);
 

@@ -103,6 +103,10 @@ img {
   position: absolute;
 }
 
+.edit-preview-img {
+  width: 15%;
+}
+
 a, button.btn-logout {
   display: inline-block;
   color: inherit;

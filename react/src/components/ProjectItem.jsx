@@ -27,8 +27,6 @@ export default function ProjectItem({deleteProduct, title, url, img, id, created
             <td>{title}</td>
             <td>{url}</td>
             <td><img className="thumbnail-img" src={"http://localhost:8000/images/"+img} /></td>
-            {/* /opt/lampp/htdocs/workspace/Portfolio_Laravel_React/public/images/1680462216.jpeg */}
-            {/* public/images/1680462445.jpg */}
             <td>{created_at}</td>
             <td>
                 <Link className="btn-edit" to={'/projects/'+id}>Edit</Link>

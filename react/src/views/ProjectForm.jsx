@@ -5,19 +5,20 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 export default function ProjectForm() {
 
-    const {setNotification} = useStateContext()
-
-    const navigate = useNavigate();
-
-    const {id} = useParams();
     
+    const [imageSelected, setImageSelected] = useState(false);
+    const {setNotification} = useStateContext()
+    const navigate = useNavigate();
+    const {id} = useParams();
     const [errors, setErrors] = useState(null);
+    
     const [project, setProject] = useState({
         'id': null,
         'title': '',
         'url': '',
         // 'image': null
     })
+    
     const fileRef = useRef()
     const [fileName, setFileName] = useState()
     
@@ -30,21 +31,34 @@ export default function ProjectForm() {
                     setProject({
                         'id': data.data.id,
                         'title': data.data.title,
-                        'url': data.data.url
+                        'url': data.data.url,
+                        'image': data.data.image
                     })
                 })
-        }, [])
-    }
-   
-    const onSubmit = (e) => {
-        e.preventDefault()
+            }, [])
+        }
+        
+        console.log('PROJECT IMAGE ', project.image) // Test
 
-        setErrors(null)
-
+        const onSubmit = (e) => {
+            e.preventDefault()
+            
+            setErrors(null)
+            
         // update
         if(project.id) {
-            // TODO: new FormData procedure
-            axiosClient.put('/projects/'+project.id, project)
+            const formData = new FormData();
+            formData.append('id', project.id);
+            formData.append('title', project.title);
+            formData.append('url', project.url);
+            // TODO: need to check if there is file...
+            if(imageSelected) {
+                formData.append('image', project.image);
+            }
+            // because axios.put not working. Probabaly Laravel problem
+            formData.append('_method', 'PUT');
+            console.log('PROJECT ', project);
+            axiosClient.post('/projects/'+project.id, formData)
                 .then(() => {
                     console.log('user is updated');
                     setNotification('Project is updated')
@@ -62,7 +76,7 @@ export default function ProjectForm() {
             const formData = new FormData();
             formData.append('title', project.title);
             formData.append('url', project.url);
-            formData.append('image', project.image);
+            project.image && formData.append('image', project.image);
             axiosClient.post('/projects', formData)
                 .then(({data}) => {
                     setNotification('Project is stored')
@@ -119,6 +133,7 @@ export default function ProjectForm() {
                                 onChange={e => {
                                     setFileName(fileRef.current.files[0].name)
                                     setProject({...project, image: fileRef.current.files[0]})
+                                    setImageSelected(e.target.files[0])
                                 }}
                                 type="file"
                                 id="image"
@@ -126,6 +141,22 @@ export default function ProjectForm() {
                             <span id="imageName"> {fileName}</span>
                         </label>
                     </div>
+                    {/* show image on Edit form */}
+                    {project.image && id && !imageSelected &&
+                        <div>
+                            <img className="edit-preview-img" src={'http://localhost:8000/images/'+project.image} />
+                        </div>
+                    }
+                    {/* show selected aka. image preview */}
+                    {imageSelected && 
+                        <div>
+                            <img 
+                                src={URL.createObjectURL(imageSelected)}
+                                alt="project image preview" 
+                                className="edit-preview-img"
+                            />
+                        </div>
+                    }
                     
                     <button className={`btn-block ${id ? 'btn-edit':'btn-add'}`} type="submit">
                         {id && 'Edit'}
