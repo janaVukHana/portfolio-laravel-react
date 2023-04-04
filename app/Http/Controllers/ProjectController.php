@@ -56,7 +56,7 @@ class ProjectController extends Controller
         $projectInfoUpdated = $request->validated();
 
         if(request()->file('image')) {
-            // TODO: delete prev image
+            unlink('images/' . $project['image']);
             $image = request()->file('image');
             $image_name = time().'.'.$image->getClientOriginalExtension();
             $image->move('images/',$image_name);
