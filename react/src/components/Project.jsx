@@ -14,11 +14,8 @@ export default function Project() {
 
     const getProjects = () => {
         setLoading(true)
-        console.log('into getProjcts from Project jsx');
         axiosClient.get('/projects')
             .then(({data}) => {
-                console.log('from then');
-                console.log(data.data)
                 setLoading(false)
                 setProjects(data.data)
             })

@@ -2,20 +2,14 @@ import { useRef, useEffect, useState } from 'react';
 
 export default function Home() {
 
-    // Note: image in work section is opacity 0 and scale 0
-    // probably need to use useEffect
     const [elementVisible, setElementVisible] = useState(false)
 
     const myRef = useRef(null)
 
     useEffect(() => {
-        console.log('myRef', myRef.current);
         const observer = new IntersectionObserver((entries, observer) => {
             const entry = entries[0]
-            // TODO: delete logs
-            console.log('entry', entry);
-            console.log('entry.isIntersecting', entry.isIntersecting);
-            console.log('top: ', entry.boundingClientRect.top);
+            
             if(entry.isIntersecting) {
                 setElementVisible(true)
             }

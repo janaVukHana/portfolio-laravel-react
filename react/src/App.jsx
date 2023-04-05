@@ -3,9 +3,11 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Navbar from "./components/Navbar"
 import Footer from './components/Footer'
 import Dashboard from './views/Dashboard'
+// import Messages from './views/Messages'
 import Contact from './views/Contact'
 import Login from './views/Login'
 import Home from './views/Home'
+import Message from './views/Message'
 import NotFound from './views/NotFound'
 import Protected from './components/Protected'
 import ScrollToTop from './components/ScrollToTop'
@@ -38,6 +40,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/projects/new" element={<Protected><ProjectForm key="projectCreate" /></Protected>} />
           <Route path="/projects/:id" element={<Protected><ProjectForm key="projectUpdate" /></Protected>} />
+          <Route path="/contact-us/:id" element={<Protected><Message /></Protected>} />
         </Routes>
 
         <Footer />

@@ -379,25 +379,15 @@ button:focus {
   color: #fff;
 }
 
-/* message when form is submited  */
-.form-submit-message {
-  /* initialy hide  */
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 1rem;
-  background-color: #393e46;
-  color: #fff;
-  border-radius: 5px;
-}
-
 /* Dashboard section */
 
 /* #dashboard main {
   min-height: 55vh;
 } */
+#dashboard aside button {
+  margin: 0 0 0.5rem 0;
+}
+
 
 /* LOGOUT SECTION */
 button.btn-logout {
@@ -501,7 +491,8 @@ table > tbody > tr > td {
 .btn,
 .btn-add,
 .btn-edit,
-.btn-delete {
+.btn-delete,
+.btn-dashboard {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #5b08a7;
@@ -521,7 +512,8 @@ table > tbody > tr > td {
 
 .btn-add,
 .btn-edit,
-.btn-delete{
+.btn-delete,
+.btn-dashboard {
     padding: 0.5rem 0.75rem;
     font-size: 14px;
     border-radius: 4px;
@@ -537,11 +529,13 @@ table > tbody > tr > td {
   border: 1px solid #00a762;
 }
 
-.btn-edit {
+.btn-edit,
+.btn-dashboard {
   background-color: var(--dark);
   border: 1px solid white;
 }
-.btn-edit:hover {
+.btn-edit:hover,
+.btn-dashboard:hover {
 color: var(--dark);
 background-color: white;
 border: 1px solid var(--dark);

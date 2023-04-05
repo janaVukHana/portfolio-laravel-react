@@ -60,7 +60,6 @@ export default function ProjectForm() {
             console.log('PROJECT ', project);
             axiosClient.post('/projects/'+project.id, formData)
                 .then(() => {
-                    console.log('user is updated');
                     setNotification('Project is updated')
                     navigate('/dashboard')
                 })

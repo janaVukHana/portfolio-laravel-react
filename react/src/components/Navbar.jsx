@@ -8,7 +8,6 @@ export default function Navbar() {
 
     const onLogout = (e) => {
         e.preventDefault()
-        console.log('logout btn pushed');
 
         axiosClient.post('/logout')
             .then(() => {
