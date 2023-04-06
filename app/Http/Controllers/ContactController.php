@@ -9,6 +9,9 @@ use App\Http\Resources\ContactResource;
 
 class ContactController extends Controller
 {
+     /**
+     * Display a listing of the resource.
+     */
     public function index() {
         return ContactResource::collection(Contact::all());
     }
@@ -21,6 +24,9 @@ class ContactController extends Controller
         return new ContactResource($contact);
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(StoreContactRequest $request) {
         $messageInfo = $request->validated();
                 
@@ -30,6 +36,9 @@ class ContactController extends Controller
         // 201 == the request has succeeded and has led to the creation of a resource.
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(Contact $contact)
     {
         $contact->delete();

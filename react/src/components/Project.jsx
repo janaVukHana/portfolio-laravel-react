@@ -34,7 +34,7 @@ export default function Project() {
                 {loading && <p>loading ...</p>}
 
                 {!loading && 
-                    <table>
+                    <table className="projects">
                         <thead>
                             <tr>
                                 <th>ID</th>

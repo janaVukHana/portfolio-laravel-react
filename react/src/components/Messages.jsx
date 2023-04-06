@@ -32,7 +32,7 @@ export default function Messages() {
             <div className='card animated fadeInDown'>
                 {loading && <p>Loading...</p>}
                 {!loading && 
-                    <table>
+                    <table className="messages">
                         <thead>
                             <tr>
                                 <th>FROM</th>

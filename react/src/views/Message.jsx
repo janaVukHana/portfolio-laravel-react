@@ -25,10 +25,10 @@ export default function Message() {
             <div className="inner-container">
                 <h1>Single message</h1>
                 {loading && <p>Loading...</p>}
-                {!loading && <div>
-                    <p>Message from: {message.fName} {message.lName}</p>
-                    <p>Email: {message.email}</p>
-                    <p>Message: {message.message} </p>
+                {!loading && <div className="card message">
+                    <p><span>Message from:</span> {message.fName} {message.lName}</p>
+                    <p><span>Email:</span> {message.email}</p>
+                    <p><span>Message:</span> {message.message} </p>
                     <button className='btn-dashboard' onClick={() => navigate(-1)}>Go Back</button>
                 </div>}
             </div>
