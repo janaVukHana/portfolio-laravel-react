@@ -1,21 +1,28 @@
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import {AnimationOnScroll} from 'react-animation-on-scroll'
+import axiosClient from '../axios-client';
 
 export default function Home() {
 
-    const [elementVisible, setElementVisible] = useState(false)
-
-    const myRef = useRef(null)
+    const [projects, setProjects] = useState([])
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        const observer = new IntersectionObserver((entries, observer) => {
-            const entry = entries[0]
-            
-            if(entry.isIntersecting) {
-                setElementVisible(true)
-            }
-        });
-        observer.observe(myRef.current);
-      }, []);
+        getProjects()
+    }, [])
+
+    const getProjects = () => {
+        setLoading(true)
+        axiosClient.get('/projects')
+            .then(({data}) => {
+                setLoading(false)
+                setProjects(data.data)
+                console.log('DATA FROM USEEFFECT', data)
+            })
+            .catch(() => {
+                setLoading(false)
+            })
+    }
 
     return (
         <>
@@ -37,38 +44,84 @@ export default function Home() {
                     </div>
                 </section>
 
+                {/* WORK SECTION TEST */} 
+                <section id="work" className="light-section">
+                    <div className="inner-container">
+                        <h2>These are some of my projects</h2>
+                        {projects && <div className='row'>
+                            {projects.map(project => {
+                                return (
+                                    <div className='col animate'>
+                                        <AnimationOnScroll animateOnce={true} animateIn='animate__bounceIn'>
+                                            <a href={project.url} target="_blank" rel="noopener">
+                                                <figure>
+                                                    <img src={"http://localhost:8000/images/"+project.image} alt="project image" />
+                                                    <figcaption><span>&lt;</span>{[project.title]}<span>/&gt;</span>
+                                                    </figcaption>
+                                                </figure>
+                                            </a>
+                                        </AnimationOnScroll>
+                                    </div> 
+                                )
+                            })}
+                        </div> 
+                        }
+                    </div>
+                </section>
+                {/* END */}
+
                 {/* <!-- WORK SECTION --> */}
                 <section id="work" className="light-section">
                     <div className="inner-container">
                         <h2>These are some of my projects</h2>
                         <div className="row">
-                            <div className={`col ${elementVisible ? 'animate' : ''}`}>
-                                <a href="https://janavukhana.github.io/crudApp/" target="_blank" rel="noopener">
-                                    <figure>
-                                        <img src="../src/assets/img/crud.jpg" alt="message" />
-                                        <figcaption ref={myRef}><span>&lt;</span>CRUD app<span>/&gt;</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
+                            <div className='col animate'>
+                                <AnimationOnScroll animateOnce={true} animateIn='animate__bounceIn'>
+                                    <a href="https://janavukhana.github.io/crudApp/" target="_blank" rel="noopener">
+                                        <figure>
+                                            <img src="../src/assets/img/crud.jpg" alt="message" />
+                                            <figcaption><span>&lt;</span>CRUD app<span>/&gt;</span>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </AnimationOnScroll>
                             </div>
-                            <div className={`col ${elementVisible ? 'animate' : ''}`}>
-                                <a href="https://janavukhana.github.io/clone-starbucks/" target="_blank" rel="noopener">
-                                    <figure>
-                                        <img src="../src/assets/img/quokka-1.webp" alt="quokka" />
-                                        <figcaption><span>&lt;</span>Starbucks clone<span>/&gt;</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
+                            <div className='col animate'>
+                            {/* TODO: ADD DELAY DINAMICALY IF YOU WANT */}
+                                <AnimationOnScroll animateOnce={true} animateIn='animate__bounceIn' delay={200}>
+                                    <a href="https://janavukhana.github.io/clone-starbucks/" target="_blank" rel="noopener">
+                                        <figure>
+                                            <img src="../src/assets/img/quokka-1.webp" alt="quokka" />
+                                            <figcaption><span>&lt;</span>Starbucks clone<span>/&gt;</span>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </AnimationOnScroll>
                             </div>
-                            <div className={`col ${elementVisible ? 'animate' : ''}`}>
-                                <a href="https://janavukhana.github.io/the_game/index.html" target="_blank"
-                                    rel="noopener">
-                                    <figure>
-                                        <img src="../src/assets/img/deadpool-1.webp" alt="game" />
-                                        <figcaption><span>&lt;</span>The Game<span>/&gt;</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
+                            <div className='col animate'>
+                                <AnimationOnScroll animateOnce={true} animateIn='animate__bounceIn' delay={400}>
+                                    <a href="https://janavukhana.github.io/the_game/index.html" target="_blank"
+                                        rel="noopener">
+                                        <figure>
+                                            <img src="../src/assets/img/deadpool-1.webp" alt="game" />
+                                            <figcaption><span>&lt;</span>The Game<span>/&gt;</span>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </AnimationOnScroll>
+                            </div>
+                            {/* Delete this */}
+                            <div className='col animate'>
+                                <AnimationOnScroll animateOnce={true} animateIn="animate__bounceIn">
+                                    <a href="https://janavukhana.github.io/the_game/index.html" target="_blank"
+                                        rel="noopener">
+                                        <figure>
+                                            <img src="../src/assets/img/deadpool-1.webp" alt="game" />
+                                            <figcaption><span>&lt;</span>The Test<span>/&gt;</span>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </AnimationOnScroll>
                             </div>
                               {/* <div class="col">
                                 <a href="https://janavukhana.github.io/zdrav-zivot/" target="_blank" rel="noopener">
@@ -193,43 +246,6 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                {/* <!-- CONTACT SECTION --> */}
-                {/* <section id="contact" class="light-section">
-                    <div class="inner-container">
-                        <h2>Let's work together...</h2>
-                        <h3>How do you take your coffee?</h3>
-                        <div class="contact-info">
-                            <p>
-                                <i class="fas fa-map-marker-alt"></i> Novi Sad, Serbia
-                            </p>
-                            <p>
-                                <i class="fas fa-mobile-alt"></i> Phone: <a href="tel:+38162421903">+381 62 421903</a>
-                            </p>
-                            <p>
-                                <i class="fas fa-at"></i>Email: ilija009@gmail.com
-                            </p>
-                        </div>
-                        <h3 class="form-heading">Say Hi!</h3>
-                        <form action="/" method="post">
-                            <label for="email"></label>
-                            <input type="email" id="email" name="email" placeholder="Your email" autocomplete="off"
-                                required />
-                            <label for="fName"></label>
-                            <input type="text" id="fName" name="fName" placeholder="First name" required
-                                autocomplete="off" />
-                            <label for="lName"></label>
-                            <input type="text" id="lName" name="lName" placeholder="Last name" required
-                                autocomplete="off" />
-                            <label for="message"></label>
-                            <textarea name="message" id="message" cols="30" rows="10" placeholder="Your message"
-                                required></textarea>
-                            <button type="submit">SEND MESSAGE</button>
-                        </form>
-                        <div class="form-submit-message">
-                            <p>Your form has been submited!</p>
-                        </div>
-                    </div>
-                </section> */}
             </main>
         </>
     )
