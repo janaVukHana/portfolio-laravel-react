@@ -4,7 +4,7 @@ export default function Footer() {
 
     return (
         <>
-        <div className="light-section" style={{padding: '0px', height: '10px', flex: '0 1 auto'}}></div>
+        <div className="light-section" style={{height: '10px', padding: '0'}}></div>
         <footer className="dark-section" style={{flex: '0 1 auto'}}>
                 <div className="inner-container">
                     <ul>

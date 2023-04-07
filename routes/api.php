@@ -23,17 +23,14 @@ Route::middleware('auth:sanctum')->group(function() {
         return $request->user();
     });
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::apiResource('/projects', ProjectController::class);
+    Route::apiResource('/projects', ProjectController::class,['except'=>['index']]);
+    Route::get('/contact-us', [ContactController::class, 'index']);
+    Route::get('/contact-us/{contact}', [ContactController::class, 'show']);
+    Route::delete('/contact-us/{contact}', [ContactController::class, 'destroy']);
 });
 
+// unprotected api routes - you don't need to be logged
 Route::post('/login', [AuthController::class, 'login']);
-
-// TODO: organize this shit...
-// TESTING SENDING EMAIL
-// protected routes
-Route::get('/contact-us', [ContactController::class, 'index']);
-Route::get('/contact-us/{contact}', [ContactController::class, 'show']);
-Route::delete('/contact-us/{contact}', [ContactController::class, 'destroy']);
-// unproteced route
+Route::get('/projects', [ProjectController::class, 'index']);
 Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.us.store');
 

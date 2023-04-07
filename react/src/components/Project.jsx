@@ -37,11 +37,8 @@ export default function Project() {
                     <table className="projects">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>TITLE</th>
-                                <th>URL</th>
                                 <th>IMAGE</th>
-                                <th>CREATED_AT</th>
                                 <th>ACTIONS</th>
                             </tr>
                         </thead>
@@ -51,9 +48,7 @@ export default function Project() {
                                     key={project.id} 
                                     id={project.id} 
                                     title={project.title} 
-                                    url={project.url} 
                                     img={project.image}
-                                    created_at={project.created_at}
                                     deleteProduct={getProjects}
                                 />
                                 )) 

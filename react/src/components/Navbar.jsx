@@ -21,12 +21,13 @@ export default function Navbar() {
                 <ul>
                     <li><NavLink className={({isActive}) => isActive ? 'active':''} to="/">Home</NavLink></li>
                     <li><NavLink className={({isActive}) => isActive ? 'active':''} to="/contact">Contact</NavLink></li>
-                    <li><NavLink className={({isActive}) => isActive ? 'active':''} to="/dashboard">Dashboard</NavLink></li>
-                    {/* <li><Link className="work" to="/dashboard">Dashboard</Link></li> */}
-                    {!token &&
+                    {/* NOTE TO MYSELF: I don't want login button to bi visible */}
+                    {/* {!token &&
                         <li><NavLink className={({isActive}) => isActive ? 'active' : '' } to="/login">Login</NavLink></li>
+                    } */}
+                    {token && 
+                        <li><NavLink className={({isActive}) => isActive ? 'active':''} to="/dashboard">Dashboard</NavLink></li>
                     }
-                        {/* <li><NavLink className="about-me" to="/login">Login</NavLink></li> */}
                     {token && 
                         <li><a href="#" onClick={onLogout}>Logout</a></li>
                     }

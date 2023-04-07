@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import axiosClient from "../axios-client";
 import { useStateContext } from "../contexts/ContextProvider";
 
-export default function ProjectItem({deleteProduct, title, url, img, id, created_at}) {
+export default function ProjectItem({deleteProduct, title, img, id}) {
 
     const {setNotification} = useStateContext()
 
@@ -23,11 +23,8 @@ export default function ProjectItem({deleteProduct, title, url, img, id, created
 
     return (
         <tr>
-            <td>{id}</td>
             <td>{title}</td>
-            <td>{url}</td>
             <td><img className="thumbnail-img" src={"http://localhost:8000/images/"+img} /></td>
-            <td>{created_at}</td>
             <td>
                 <Link className="btn-edit" to={'/projects/'+id}>Edit</Link>
                 &nbsp;

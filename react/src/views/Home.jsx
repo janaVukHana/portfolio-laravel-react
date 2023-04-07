@@ -17,7 +17,6 @@ export default function Home() {
             .then(({data}) => {
                 setLoading(false)
                 setProjects(data.data)
-                console.log('DATA FROM USEEFFECT', data)
             })
             .catch(() => {
                 setLoading(false)
@@ -44,7 +43,7 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* WORK SECTION TEST */} 
+                {/* WORK SECTION */} 
                 <section id="work" className="light-section">
                     <div className="inner-container">
                         <h2>These are some of my projects</h2>
@@ -66,135 +65,6 @@ export default function Home() {
                             })}
                         </div> 
                         }
-                    </div>
-                </section>
-                {/* END */}
-
-                {/* <!-- WORK SECTION --> */}
-                <section id="work" className="light-section">
-                    <div className="inner-container">
-                        <h2>These are some of my projects</h2>
-                        <div className="row">
-                            <div className='col animate'>
-                                <AnimationOnScroll animateOnce={true} animateIn='animate__bounceIn'>
-                                    <a href="https://janavukhana.github.io/crudApp/" target="_blank" rel="noopener">
-                                        <figure>
-                                            <img src="../src/assets/img/crud.jpg" alt="message" />
-                                            <figcaption><span>&lt;</span>CRUD app<span>/&gt;</span>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </AnimationOnScroll>
-                            </div>
-                            <div className='col animate'>
-                            {/* TODO: ADD DELAY DINAMICALY IF YOU WANT */}
-                                <AnimationOnScroll animateOnce={true} animateIn='animate__bounceIn' delay={200}>
-                                    <a href="https://janavukhana.github.io/clone-starbucks/" target="_blank" rel="noopener">
-                                        <figure>
-                                            <img src="../src/assets/img/quokka-1.webp" alt="quokka" />
-                                            <figcaption><span>&lt;</span>Starbucks clone<span>/&gt;</span>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </AnimationOnScroll>
-                            </div>
-                            <div className='col animate'>
-                                <AnimationOnScroll animateOnce={true} animateIn='animate__bounceIn' delay={400}>
-                                    <a href="https://janavukhana.github.io/the_game/index.html" target="_blank"
-                                        rel="noopener">
-                                        <figure>
-                                            <img src="../src/assets/img/deadpool-1.webp" alt="game" />
-                                            <figcaption><span>&lt;</span>The Game<span>/&gt;</span>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </AnimationOnScroll>
-                            </div>
-                            {/* Delete this */}
-                            <div className='col animate'>
-                                <AnimationOnScroll animateOnce={true} animateIn="animate__bounceIn">
-                                    <a href="https://janavukhana.github.io/the_game/index.html" target="_blank"
-                                        rel="noopener">
-                                        <figure>
-                                            <img src="../src/assets/img/deadpool-1.webp" alt="game" />
-                                            <figcaption><span>&lt;</span>The Test<span>/&gt;</span>
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </AnimationOnScroll>
-                            </div>
-                              {/* <div class="col">
-                                <a href="https://janavukhana.github.io/zdrav-zivot/" target="_blank" rel="noopener">
-                                    <figure>
-                                        <img src="./img/zdrav-zivot.jpg" alt="house" />
-                                        <figcaption><span>&lt;</span>Zdrav život<span>/&gt;</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div> */}
-                            {/* <div class="col">
-                                <a href="https://janavukhana.github.io/band/" target="_blank" rel="noopener">
-                                    <figure>
-                                        <img src="./img/chicago_1.jpg" alt="the band" />
-                                        <figcaption><span>&lt;</span>The Band<span>/&gt;</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a href="https://cryptic-reef-32605.herokuapp.com/" target="_blank" rel="noopener">
-                                    <figure>
-                                        <img src="/img/weadding_photo.webp" alt="wedding" />
-                                        <figcaption><span>&lt;</span>Weddings<span>/&gt;</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div> */}
-                            {/* <div class="col">
-                                <a href="https://janavukhana.github.io/dzidzabidzice/" target="_blank" rel="noopener">
-                                    <figure>
-                                        <img src="/img/muffin_4.jpeg" alt="muffins" />
-                                        <figcaption><span>&lt;</span>Muffins<span>/&gt;</span></figcaption>
-                                    </figure>
-                                </a>
-                            </div> */}
-                            {/* <div class="col">
-                                <a href="https://janavukhana.github.io/restaurant-modal/" target="_blank"
-                                    rel="noopener">
-                                    <figure>
-                                        <img src="/img/onepage_restaurant.jpg" alt="restaurant" />
-                                        <figcaption><span>&lt;</span>Restaurant<span>/&gt;</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div> */}
-                            {/* <!-- <div class="col">
-                                <a href="https://janavukhana.github.io/divcibareApp/" target="_blank">
-                                    <figure>
-                                        <img src="/img/apartment.jpeg" alt="house" />
-                                        <figcaption><span>&lt;</span>Apartment<span>/&gt;</span>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div> --> */}
-                            {/* <div class="col">
-                                <a href="https://janavukhana.github.io/sanitetskiTransport/" target="_blank"
-                                    rel="noopener">
-                                    <figure>
-                                        <img src="assets/img/abmulance.jpg" alt="ambulance car" />
-                                        <figcaption><span>&lt;</span>Ambulance<span>/&gt;</span></figcaption>
-                                    </figure>
-                                </a>
-                            </div> */}
-                            {/* <div class="col">
-                                <a href="https://janavukhana.github.io/hamburger-w3/" target="_blank" rel="noopener">
-                                    <figure>
-                                        <img src="./img/hamburger.jpg" alt="hamburger" />
-                                        <figcaption><span>&lt;</span>Catering<span>/&gt;</span></figcaption>
-                                    </figure>
-                                </a>
-                            </div> */}
-                        </div>
                     </div>
                 </section>
 

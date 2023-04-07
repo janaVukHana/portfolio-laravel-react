@@ -630,15 +630,6 @@ button.active {
     margin-bottom: 2rem;
   }
 
-  #dashboard .projects td:nth-child(1),
-  #dashboard .projects th:nth-child(1),
-  #dashboard .projects td:nth-child(3),
-  #dashboard .projects th:nth-child(3),
-  #dashboard .projects td:nth-child(5),
-  #dashboard .projects th:nth-child(5) {
-    display: none;
-  }
-
   #dashboard .messages td:nth-child(2),
   #dashboard .messages th:nth-child(2)
   {

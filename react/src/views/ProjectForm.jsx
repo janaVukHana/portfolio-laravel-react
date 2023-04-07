@@ -38,8 +38,6 @@ export default function ProjectForm() {
             }, [])
         }
         
-        console.log('PROJECT IMAGE ', project.image) // Test
-
         const onSubmit = (e) => {
             e.preventDefault()
             
@@ -57,7 +55,6 @@ export default function ProjectForm() {
             }
             // because axios.put not working. Probabaly Laravel problem
             formData.append('_method', 'PUT');
-            console.log('PROJECT ', project);
             axiosClient.post('/projects/'+project.id, formData)
                 .then(() => {
                     setNotification('Project is updated')
