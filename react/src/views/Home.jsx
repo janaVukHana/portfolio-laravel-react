@@ -48,9 +48,9 @@ export default function Home() {
                     <div className="inner-container">
                         <h2>These are some of my projects</h2>
                         {projects && <div className='row'>
-                            {projects.map(project => {
+                            {projects.map((project, index) => {
                                 return (
-                                    <div className='col animate'>
+                                    <div key={index} className='col animate'>
                                         <AnimationOnScroll animateOnce={true} animateIn='animate__bounceIn'>
                                             <a href={project.url} target="_blank" rel="noopener">
                                                 <figure>
