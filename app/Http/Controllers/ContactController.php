@@ -6,6 +6,8 @@ use App\Http\Requests\StoreContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Resources\ContactResource;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -29,6 +31,8 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request) {
         $messageInfo = $request->validated();
+
+        Mail::to('ilija009@gmail.com')->send(new ContactMail($messageInfo));
                 
         $message = Contact::create($messageInfo);
 
