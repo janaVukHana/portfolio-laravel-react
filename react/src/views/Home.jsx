@@ -33,13 +33,18 @@ export default function Home() {
             
             <main>
 
-                {/* <!-- ABOUT ME SECTION --> */}
+                {/* ABOUT ME SECTION */}
                 <section id="about-me" className="dark-section">
                     <div className="inner-container">
                         <h2>About me</h2>
-                        <p>I am a self-taught Full Stack Developer from Novi Sad, Serbia. Husband, father of three small
-                            kids, dog owner - Labrador Retriever are the best, veteran basketball player, former free
-                            climber and camping lover.</p>
+                        <p>
+                            I am a Full Stack Developer from Novi Sad, Serbia. Quiet and
+                            focused person who can work swiftly and effectively either alone or as part of a
+                            team.
+                        </p>
+                        <p>
+                            Husband, father of three small kids, basketball player, free climber and camping lover.
+                        </p>
                     </div>
                 </section>
 
@@ -47,6 +52,7 @@ export default function Home() {
                 <section id="work" className="light-section">
                     <div className="inner-container">
                         <h2>These are some of my projects</h2>
+                        {loading && <p>Loading...</p>}
                         {projects && <div className='row'>
                             {projects.map((project, index) => {
                                 return (
@@ -68,7 +74,7 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* <!-- MY SKILLS SECTION --> */}
+                {/* SKILLS SECTION */}
                 <section id="my-skills" className="dark-section">
                     <div className="inner-container">
                         <h2>My skills</h2>
