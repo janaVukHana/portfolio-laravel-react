@@ -62,7 +62,7 @@ export default function Login() {
                     <button className="btn-block" type="submit">LOGIN</button>
                 </form>
 
-                {errors && <div>
+                {errors && <div className='error'>
                     {Object.keys(errors).map(key => (
                         <p key={key}>{errors[key][0]}</p>
                     ))}
