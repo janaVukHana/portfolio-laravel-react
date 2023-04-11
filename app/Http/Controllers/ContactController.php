@@ -32,7 +32,8 @@ class ContactController extends Controller
     public function store(StoreContactRequest $request) {
         $messageInfo = $request->validated();
 
-        Mail::to('ilija009@gmail.com')->send(new ContactMail($messageInfo));
+        // TODO: send email notification
+        // Mail::to('ilija009@gmail.com')->send(new ContactMail($messageInfo));
                 
         $message = Contact::create($messageInfo);
 

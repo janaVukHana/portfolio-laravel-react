@@ -140,7 +140,7 @@ export default function ProjectForm() {
                     {/* show image on Edit form */}
                     {project.image && id && !imageSelected &&
                         <div>
-                            <img className="edit-preview-img" src={'http://localhost:8000/images/'+project.image} />
+                            <img className="edit-preview-img" src={'https://api.ilijaradovanovic.com/images/'+project.image} />
                         </div>
                     }
                     {/* show selected aka. image preview */}

@@ -24,7 +24,7 @@ export default function ProjectItem({deleteProduct, title, img, id}) {
     return (
         <tr>
             <td>{title}</td>
-            <td><img className="thumbnail-img" src={"http://localhost:8000/images/"+img} /></td>
+            <td><img className="thumbnail-img" src={"https://api.ilijaradovanovic.com/images/"+img} /></td>
             <td>
                 <Link className="btn-edit" to={'/projects/'+id}>Edit</Link>
                 &nbsp;

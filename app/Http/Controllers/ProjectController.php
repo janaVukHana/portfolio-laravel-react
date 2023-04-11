@@ -75,6 +75,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        unlink('images/' . $project['image']);
         $project->delete();
 
         return response('', 204);
