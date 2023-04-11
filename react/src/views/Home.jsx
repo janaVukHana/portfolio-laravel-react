@@ -60,7 +60,7 @@ export default function Home() {
                                         <AnimationOnScroll animateOnce={true} animateIn='animate__bounceIn'>
                                             <a href={project.url} target="_blank" rel="noopener">
                                                 <figure>
-                                                    <img src={"http://localhost:8000/images/"+project.image} alt="project image" />
+                                                    <img src={"https://api.ilijaradovanovic.com/images/"+project.image} alt="project image" />
                                                     <figcaption><span>&lt;</span>{[project.title]}<span>/&gt;</span>
                                                     </figcaption>
                                                 </figure>
