@@ -14,6 +14,8 @@ html, body {
   --normal: #256D85;
   --medium: #47B5FF;
   --light: #DFF6FF;
+  --white: #fff;
+  --danger: #c50d0d;
 }
   
 body {
@@ -28,48 +30,12 @@ body {
 
 h1 {
   font-size: 2.5rem;
-}
-
-h1#intro {
-  font-size: 6rem;
-  font-family: 'Dancing Script', cursive;
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translate(-50%, 0);
-  color: #fff;
-  /* add border around text with little shadow */
-  text-shadow: 2px 0 15px #000, -2px 0 15px #000, 0 2px 15px #000,
-    0 -2px 15px #000, 1px 1px 15px #000, -1px -1px 15px #000, 1px -1px 15px #000,
-    -1px 1px 15px #000;
-
-  animation-name: entertain;
-  animation-duration: 3s;
-}
-  
-/* animating h1 on home page */
-@keyframes entertain {
-  from {
-    opacity: 0;
-    bottom: 22rem;
-    left: 0;
-  }
-  to {
-    opacity: 1;
-    bottom: 2rem;
-    left: 50%;
-  }
-}
-
-h1 span {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  font-weight: 400;
+  margin-bottom: 3rem;
 }
 
 h2 {
   font-size: 2.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   text-transform: capitalize;
 }
   
@@ -86,8 +52,8 @@ h3 {
 }
 
 p {
-  line-height: 2;
-  font-size: 1.2rem;
+  line-height: 1.5;
+  font-size: 1.1rem;
   opacity: 0.8;
   letter-spacing: 3px;
 }
@@ -120,12 +86,12 @@ button:hover {
 
 .dark-section {
   background-color: var(--dark);
-  color: #fff;
+  color: var(--white);
 }
 
 .light-section {
-  background-color: #fff;
-  color: #393e46;
+  background-color: var(--white);
+  color: var(--dark);
 }
 
 .dark-section,
@@ -147,8 +113,8 @@ button:hover {
 
 .error {
   padding: 1rem;
-  color: #fff;
-  background-color: #c50d0d;
+  color: var(--white);
+  background-color: var(--danger);
 }
 
 .row {
@@ -174,7 +140,7 @@ nav ul {
   justify-content: flex-end;
 }
 
-/* doing some test. also on bottom of page */
+/* animation on nav links to show one by one */
 nav ul li {
   opacity: 0;
   animation: textShow 1s forwards;
@@ -199,7 +165,7 @@ nav ul li + li + li + li {
 nav ul li + li + li + li + li {
   animation-delay: 1.5s;
 }
-/* end of this part of test */
+
 nav ul li a, button.btn-logout {
   padding: 0.5rem 2rem;
   text-transform: uppercase;
@@ -207,21 +173,117 @@ nav ul li a, button.btn-logout {
 }
 
 nav ul li a:hover, .btn-logout:hover, a.active {
-  color: #fff;
-  background-color: #393e46;
+  color: var(--white);
+  background-color: var(--dark);
 }
 
 /* HEADER */
 header {
   height: 100vh;
-  /* for parallax background*/
+  /* for parallax background effect*/
   position: relative;
-  background-attachment: fixed;
+  /* background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('/images/code_2.jpg');
+  background-image: url('/images/code_2.jpg'); */
   min-height: 100%;
+}
+
+/* START profile card component styles */
+.intro-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-border {
+  height: 369px;
+  width: 290px;
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;
+}
+
+.profile-border:hover {
+  border: 1px solid #fff;
+}
+
+.profile-card {
+  height: 379px;
+  width: 300px;
+  min-width: 300px;
+  /* background: #808080; */
+  border-radius: 10px;
+  margin-right: 20px;
+  transition: background 0.8s;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 70px 63px -60px #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card1 {
+  background: url("images/b&w-01.jpeg")
+    center center no-repeat;
+  background-size: 300px;
+}
+
+.profile-card1:hover {
+  background: url("images/b&w-01.jpeg")
+    right center no-repeat;
+  background-size: 650px;
+}
+
+.profile-card1:hover p {
+  opacity: 1;
+}
+
+.profile-card1:hover .fab {
+  opacity: 1;
+}
+
+.profile-card p {
+  color: #fff;
+  margin: 20px 10px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.profile-card .fab {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.profile-icons {
+  position: absolute;
+  fill: var(--white);
+  color: var(--white);
+  height: 130px;
+  top: 226px;
+  right: 0;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.profile-card:hover .profile-icons {
+  opacity: 1;
+}
+
+.profile-icons a {
+  color: #fff;
+  transition: color .3s;
+}
+
+.profile-icons a:hover {
+  color: #5c5c5c;
 }
 
 /* MAIN */
@@ -320,7 +382,7 @@ textarea,
 button {
   display: block;
   font-weight: bold;
-  color: #393e46;
+  color: var(--dark);
   width: 100%;
   padding: 1rem;
   margin: 0.5rem 0 1.5rem;
@@ -329,9 +391,9 @@ button {
 
 input:focus,
 textarea:focus {
-  background-color: #393e46;
-  color: #fff;
-  border-bottom: 3px solid #fff;
+  background-color: var(--dark);
+  color: var(--white);
+  border-bottom: 3px solid var(--white);
   outline: none;
 }
 
@@ -342,12 +404,12 @@ input[type=file] {
 div.file-input {
   display: block;
   font-weight: bold;
-  color: #393e46;
-  background-color: #fff;
+  color: var(--dark);
+  background-color: var(--white);
   width: 100%;
   padding: 1rem;
   margin: 0.5rem 0 1.5rem;
-  border: 3px solid #393e46;
+  border: 3px solid var(--dark);
 }
 
 div.file-input label {
@@ -363,7 +425,7 @@ div.file-input span {
 button {
   display: inline-block;
   width: auto;
-  border: 3px solid #393e46;
+  border: 3px solid var(--dark);
   border-radius: 5px;
   background-color: transparent;
   transition: 0.5s;
@@ -371,13 +433,13 @@ button {
 
 button:hover,
 button:focus {
-  background-color: #393e46;
-  color: #fff;
+  background-color: var(--dark);
+  color: var(--white);
 }
 
 /* Dashboard section */
 #dashboard aside {
-  border-right: 1px solid #fff;
+  border-right: 1px solid var(--white);
   margin-right: 2rem;
 }
 
@@ -388,7 +450,7 @@ button:focus {
 /* MESSAGE styles */
 .message span {
   font-weight: 700;
-  color: #fff;
+  color: var(--white);
 }
 
 /* LOGOUT SECTION */
@@ -531,29 +593,29 @@ table > tbody > tr > td {
 .btn-edit,
 .btn-dashboard {
   background-color: var(--dark);
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
 }
 .btn-edit:hover,
 .btn-dashboard:hover {
 color: var(--dark);
-background-color: #fff;
+background-color: var(--white);
 border: 1px solid var(--dark);
 }
 
 button.active {
   color: var(--dark);
-  background-color: #fff;
-  border: 1px solid #fff;
+  background-color: var(--white);
+  border: 1px solid var(--white);
 }
 
 .btn-delete {
-    background-color: #b72424;
-    border: 1px solid #b72424;
+    background-color: var(--danger);
+    border: 1px solid var(--danger);
 }
 .btn-delete:hover {
-  color: #b72424;
-  background-color: #fff;
-  border: 1px solid #b72424;
+  color: var(--danger);
+  background-color: var(--white);
+  border: 1px solid var(--danger);
 }
 
 .btn:hover,
@@ -616,6 +678,19 @@ button.active {
     padding: 0.3rem 0.7rem;
   }
 
+  .intro-card {
+    flex-direction: column;
+  }
+
+  .intro-card .profile-card {
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+
+  .intro-card p {
+    text-align: center;
+  }
+
   #dashboard .row {
     flex-direction: column;
   }
@@ -638,8 +713,19 @@ button.active {
  
 }
 
-/* DOING SOME TESTING */
+/* mobile screens */
+@media only screen and (max-width: 450px) {
+  #my-skills .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
+  #my-skills .row .col {
+    flex-basis: 33%;;
+  }
+}
+
+/* animation for nav links */
 @keyframes textShow {
   from {
     transform: translateY(20px);

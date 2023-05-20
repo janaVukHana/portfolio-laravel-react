@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {AnimationOnScroll} from 'react-animation-on-scroll'
 import axiosClient from '../axios-client';
+import ProfileCard from '../components/ProfileCard';
 
 export default function Home() {
 
@@ -27,7 +28,16 @@ export default function Home() {
         <>
             <header className="light-section">
                 <div className="inner-container">
-                    <h1 id="intro">I'm Ilija<br /><span>a web developer</span></h1>
+                    <div className="intro">
+                        <h1>React Laravel Developer</h1>
+                        <div className="intro-card">
+                            <ProfileCard />
+                            <p>
+                                “Always code as if the guy who ends up maintaining your code
+                                will be a violent psychopath who knows where you live”
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </header>
             
@@ -92,6 +102,10 @@ export default function Home() {
                                 <p>JS</p>
                             </div>
                             <div className="col">
+                                <i className="fab fa-react fa-5x"></i>
+                                <p>React</p>
+                            </div>
+                            <div className="col">
                                 <i className="fab fa-php fa-5x"></i>
                                 <p>PHP</p>
                             </div>
@@ -106,8 +120,8 @@ export default function Home() {
                                 <li>MySQL</li>
                                 <li>Bootstrap</li>
                                 <li>Node.js</li>
-                                <li>React</li>
-                                <li>Wordpress</li>
+                                {/* <li>React</li>
+                                <li>Wordpress</li> */}
                             </ul>
                         </div>
                         <div className="other-skills">
