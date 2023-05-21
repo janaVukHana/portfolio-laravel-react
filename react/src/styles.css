@@ -362,13 +362,13 @@ header {
 }
 
 .profile-card1 {
-  background: url("images/b&w-01.jpeg")
+  background: url("../images/b&w-01.jpeg")
     center center no-repeat;
   background-size: 300px;
 }
 
 .profile-card1:hover {
-  background: url("images/b&w-01.jpeg")
+  background: url("../images/b&w-01.jpeg")
     right center no-repeat;
   background-size: 650px;
 }
