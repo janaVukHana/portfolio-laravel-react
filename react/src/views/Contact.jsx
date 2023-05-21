@@ -85,7 +85,7 @@ export default function Contact() {
                 <input ref={lNameRef} type="text" id="lName" placeholder="Last name" autoComplete="on" />
                 <label htmlFor="message"></label>
                 <textarea ref={messageRef} id="message" cols="30" rows="10" placeholder="Your message"></textarea>
-                <button type="submit">SEND MESSAGE</button>
+                <button className="btn" type="submit">SEND MESSAGE</button>
             </form>
             {sending && <p style={{color: 'white', padding: '10px', backgroundColor: 'red', position: 'fixed', bottom: '20px', right: '20px'}}>Sending...</p>}
             

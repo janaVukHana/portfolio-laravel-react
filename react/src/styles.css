@@ -55,6 +55,12 @@ p {
   letter-spacing: 3px;
 }
 
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: var(--dark)
+}
+
 /* Layout Styles */
 
 .box {
@@ -101,7 +107,7 @@ p {
   padding: 4rem 0;
 }
 
-/* Image General Styling */
+/* Image Styles */
 
 img {
   width: 100%;
@@ -118,16 +124,138 @@ img {
   width: 15%;
 }
 
-/* General Button Styles */
-a, button {
-  display: inline-block;
-  color: inherit;
+/* Button Styles */
+
+.btn,
+.btn-add,
+.btn-edit,
+.btn-delete,
+.btn-dashboard {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: var(--dark);
+  border: 1px solid var(--dark);
+  border-radius: 4px;
   text-decoration: none;
+  padding: 15px;
+  color: var(--white);
+  font-size: 16px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
 }
 
-a:hover, 
-button:hover {
+.btn:hover,
+.btn:active,
+.btn:focus {
+    background: var(--white);
+    color: var(--dark);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-add,
+.btn-edit,
+.btn-delete,
+.btn-dashboard {
+    padding: 0.5rem 0.75rem;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.btn-add {
+    background-color: #00a762;
+    border: 1px solid #00a762;
+}
+.btn-add:hover {
+  color: #00a762;
+  background-color: #fff;
+  border: 1px solid #00a762;
+}
+
+.btn-edit,
+.btn-dashboard {
+  background-color: var(--dark);
+  border: 1px solid var(--white);
+}
+.btn-edit:hover,
+.btn-dashboard:hover {
+color: var(--dark);
+background-color: var(--white);
+border: 1px solid var(--dark);
+}
+
+button.active {
+  color: var(--dark);
+  background-color: var(--white);
+  border: 1px solid var(--white);
+}
+
+.btn-delete {
+    background-color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.btn-delete:hover {
+  color: var(--danger);
+  background-color: var(--white);
+  border: 1px solid var(--danger);
+}
+
+/* nav links and logout button Styles */
+nav ul li a {
+  padding: 0.5rem 2rem;
+}
+
+nav ul li a, .btn-logout {
+  text-transform: uppercase;
+}
+
+/* Form Elements Styles */
+
+input,
+textarea {
+  display: block;
+  font-weight: bold;
+  color: var(--dark);
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0 1.5rem;
+  border: 3px solid var(--dark);
+}
+
+input:focus,
+textarea:focus {
+  background-color: var(--dark);
+  color: var(--white);
+  border-bottom: 3px solid var(--white);
+  outline: none;
+}
+
+input[type=file] {
+  display: none;
+}
+
+div.file-input {
+  display: block;
+  font-weight: bold;
+  color: var(--dark);
+  background-color: var(--white);
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0 1.5rem;
+  border: 3px solid var(--dark);
+}
+
+div.file-input label {
   cursor: pointer;
+  color: var(--dark);
+}
+
+div.file-input span {
+  color: var(--normal);
 }
 
 /* Form Error Message Styles */
@@ -178,11 +306,6 @@ nav ul li:nth-child(5n) {
   animation-delay: 1.5s;
 }
 
-nav ul li a, button.btn-logout {
-  padding: 0.5rem 2rem;
-  text-transform: uppercase;
-  font-weight: 700;
-}
 
 nav ul li a:hover, .btn-logout:hover, a.active {
   color: var(--white);
@@ -390,65 +513,6 @@ header {
   margin: 3rem 0 1rem;
 }
 
-input,
-textarea,
-button {
-  display: block;
-  font-weight: bold;
-  color: var(--dark);
-  width: 100%;
-  padding: 1rem;
-  margin: 0.5rem 0 1.5rem;
-  border: 3px solid #393e46;
-}
-
-input:focus,
-textarea:focus {
-  background-color: var(--dark);
-  color: var(--white);
-  border-bottom: 3px solid var(--white);
-  outline: none;
-}
-
-input[type=file] {
-  display: none;
-}
-
-div.file-input {
-  display: block;
-  font-weight: bold;
-  color: var(--dark);
-  background-color: var(--white);
-  width: 100%;
-  padding: 1rem;
-  margin: 0.5rem 0 1.5rem;
-  border: 3px solid var(--dark);
-}
-
-div.file-input label {
-  cursor: pointer;
-  color: var(--dark);
-}
-
-div.file-input span {
-  color: var(--normal);
-}
-
-button {
-  display: inline-block;
-  width: auto;
-  border: 3px solid var(--dark);
-  border-radius: 5px;
-  background-color: transparent;
-  transition: 0.5s;
-}
-
-button:hover,
-button:focus {
-  background-color: var(--dark);
-  color: var(--white);
-}
-
 /* Dashboard Styles */
 
 #dashboard aside {
@@ -465,16 +529,6 @@ button:focus {
 .message span {
   font-weight: 700;
   color: var(--white);
-}
-
-/* Logout Styles */
-
-button.btn-logout {
-  margin: 0;
-  border: 0;
-  font-size: inherit;
-  background-color: inherit;
-  font-weight: 700;
 }
 
 /* Footer Styles */
@@ -503,7 +557,7 @@ footer p {
   text-align: center;
 }
 
-/* CODEHOLIC Styles */
+/* Card and Table Styles */
 
 .card {
   padding: 1.25rem 0;
@@ -564,82 +618,6 @@ table > tbody > tr > td {
   border-radius: 6px;
 }
   
-/* Button Styles */
-.btn,
-.btn-add,
-.btn-edit,
-.btn-delete,
-.btn-dashboard {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #5b08a7;
-  border: 0;
-  text-decoration: none;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 16px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-
-.btn-block {
-    width: 100%;
-}
-
-.btn-add,
-.btn-edit,
-.btn-delete,
-.btn-dashboard {
-    padding: 0.5rem 0.75rem;
-    font-size: 14px;
-    border-radius: 4px;
-}
-
-.btn-add {
-    background-color: #00a762;
-    border: 1px solid #00a762;
-}
-.btn-add:hover {
-  color: #00a762;
-  background-color: #fff;
-  border: 1px solid #00a762;
-}
-
-.btn-edit,
-.btn-dashboard {
-  background-color: var(--dark);
-  border: 1px solid var(--white);
-}
-.btn-edit:hover,
-.btn-dashboard:hover {
-color: var(--dark);
-background-color: var(--white);
-border: 1px solid var(--dark);
-}
-
-button.active {
-  color: var(--dark);
-  background-color: var(--white);
-  border: 1px solid var(--white);
-}
-
-.btn-delete {
-    background-color: var(--danger);
-    border: 1px solid var(--danger);
-}
-.btn-delete:hover {
-  color: var(--danger);
-  background-color: var(--white);
-  border: 1px solid var(--danger);
-}
-
-.btn:hover,
-.btn:active,
-.btn:focus {
-    background: #5b08a7;
-}
-
 /* @media Styles*/
 
 @media only screen and (max-width: 1200px) {
