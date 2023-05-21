@@ -1,23 +1,9 @@
+/* General Styles */
+
 html, body {
   height: 100%,
 }
 
-.box {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-}
-
-/* site color scheme */
-:root {
-  --dark: #393e46;
-  --normal: #256D85;
-  --medium: #47B5FF;
-  --light: #DFF6FF;
-  --white: #fff;
-  --danger: #c50d0d;
-}
-  
 body {
   font-family: 'Montserrat', sans-serif;
 }
@@ -28,27 +14,38 @@ body {
   box-sizing: border-box;
 }
 
+/* Color Scheme */
+
+:root {
+  --dark: #393e46;
+  --normal: #256D85;
+  --medium: #47B5FF;
+  --light: #DFF6FF;
+  --white: #fff;
+  --danger: #c50d0d;
+}
+
+/* Typography */
+
 h1 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
+  text-align: center;
+  font-weight: 700;
 }
 
 h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-transform: capitalize;
-}
-  
-h1,
-h2 {
-  text-align: center;
   font-weight: 700;
+  text-align: center;
 }
 
 h3 {
   font-size: 1.5rem;
-  text-align: center;
   margin-bottom: 4rem;
+  text-align: center;
 }
 
 p {
@@ -58,31 +55,36 @@ p {
   letter-spacing: 3px;
 }
 
-img {
-  width: 100%;
-  display: block;
+/* Layout Styles */
+
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
 }
 
-.thumbnail-img {
-  width: 60px;
-  height: 60px;
-  position: absolute;
+.inner-container {
+  height: 100%;
+  width: 70%;
+  margin: 0 auto;
 }
 
-.edit-preview-img {
-  width: 15%;
+.center-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-a, button.btn-logout {
-  display: inline-block;
-  color: inherit;
-  text-decoration: none;
+.row {
+  display: flex;
+  justify-content: space-between;
 }
 
-a:hover, 
-button:hover {
-  cursor: pointer;
+.col {
+  flex: 1;
 }
+
+/* Site Sections */
 
 .dark-section {
   background-color: var(--dark);
@@ -99,17 +101,36 @@ button:hover {
   padding: 4rem 0;
 }
 
-.inner-container {
-  height: 100%;
-  width: 70%;
-  margin: 0 auto;
+/* Image General Styling */
+
+img {
+  width: 100%;
+  display: block;
 }
 
-.center-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.thumbnail-img {
+  width: 60px;
+  height: 60px;
+  position: absolute;
 }
+
+.edit-preview-img {
+  width: 15%;
+}
+
+/* General Button Styles */
+a, button {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover, 
+button:hover {
+  cursor: pointer;
+}
+
+/* Form Error Message Styles */
 
 .error {
   padding: 1rem;
@@ -117,16 +138,8 @@ button:hover {
   background-color: var(--danger);
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-}
+/* Navigation Styles */
 
-.col {
-  flex: 1;
-}
-
-/* NAVIGATION */
 nav {
   position: fixed;
   width: 100%;
@@ -140,7 +153,6 @@ nav ul {
   justify-content: flex-end;
 }
 
-/* animation on nav links to show one by one */
 nav ul li {
   opacity: 0;
   animation: textShow 1s forwards;
@@ -150,19 +162,19 @@ nav ul li {
   animation-delay: 0.5s;
 }
 
-nav ul li + li {
+nav ul li:nth-child(2n) {
   animation-delay: 0.75s;
 }
 
-nav ul li + li + li {
+nav ul li:nth-child(3n) {
   animation-delay: 1s;
 }
 
-nav ul li + li + li + li {
+nav ul li:nth-child(4n) {
   animation-delay: 1.25s;
 }
 
-nav ul li + li + li + li + li {
+nav ul li:nth-child(5n) {
   animation-delay: 1.5s;
 }
 
@@ -177,7 +189,8 @@ nav ul li a:hover, .btn-logout:hover, a.active {
   background-color: var(--dark);
 }
 
-/* HEADER */
+/* Header Styles */
+
 header {
   height: 100vh;
   /* for parallax background effect*/
@@ -190,7 +203,7 @@ header {
   min-height: 100%;
 }
 
-/* START profile card component styles */
+/* Profile Card Styles */
 .intro-card {
   display: flex;
   justify-content: space-between;
@@ -286,10 +299,10 @@ header {
   color: #5c5c5c;
 }
 
-/* MAIN */
-/* ABOUT ME SECTION */
+/* About Me Styles */
 
-/* WORK SECTION */
+/* Work Styles */
+
 #work .row {
   flex-wrap: wrap;
   justify-content: space-between;
@@ -343,7 +356,8 @@ header {
   opacity: 1;
 }
 
-/* MY SKILLS SECTION */
+/* Skills Styles */
+
 #my-skills {
   text-align: center;
 }
@@ -358,7 +372,7 @@ header {
   margin-top: 3rem;
 }
   
-/* CONTACT SECTION */
+/* Contact Styles */
 
 #contact h2 {
   margin-bottom: 1rem;
@@ -368,7 +382,6 @@ header {
   margin-bottom: 0.3rem;
 }
 
-/* right margin on icon */
 #contact svg {
   margin-right: 1rem;
 }
@@ -415,7 +428,6 @@ div.file-input {
 div.file-input label {
   cursor: pointer;
   color: var(--dark);
-  
 }
 
 div.file-input span {
@@ -437,7 +449,8 @@ button:focus {
   color: var(--white);
 }
 
-/* Dashboard section */
+/* Dashboard Styles */
+
 #dashboard aside {
   border-right: 1px solid var(--white);
   margin-right: 2rem;
@@ -447,13 +460,15 @@ button:focus {
   margin: 0 0 0.5rem 0;
 }
 
-/* MESSAGE styles */
+/* Message Styles */
+
 .message span {
   font-weight: 700;
   color: var(--white);
 }
 
-/* LOGOUT SECTION */
+/* Logout Styles */
+
 button.btn-logout {
   margin: 0;
   border: 0;
@@ -462,7 +477,8 @@ button.btn-logout {
   font-weight: 700;
 }
 
-/* FOOTER SECTION */
+/* Footer Styles */
+
 footer {
   padding: 2rem !important;
 }
@@ -487,7 +503,7 @@ footer p {
   text-align: center;
 }
 
-/* CODEHOLIC CSS */
+/* CODEHOLIC Styles */
 
 .card {
   padding: 1.25rem 0;
@@ -548,7 +564,7 @@ table > tbody > tr > td {
   border-radius: 6px;
 }
   
-/* BUTTON STYLES */
+/* Button Styles */
 .btn,
 .btn-add,
 .btn-edit,
@@ -624,7 +640,7 @@ button.active {
     background: #5b08a7;
 }
 
-/* @media */
+/* @media Styles*/
 
 @media only screen and (max-width: 1200px) {
   .inner-container {
@@ -664,10 +680,6 @@ button.active {
 @media only screen and (max-width: 600px) {
   html {
     font-size: 12px;
-  }
-
-  h1 {
-    width: 100%;
   }
 
   nav ul li {
