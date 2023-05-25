@@ -327,9 +327,32 @@ header {
 }
 
 /* Profile Card Styles */
+.intro {
+  margin-top: 5rem;
+}
+
 .intro-card {
   display: flex;
   justify-content: space-between;
+}
+
+.intro-card h1,
+.intro-card h2,
+.intro-card p {
+  text-align: left;
+}
+
+.intro-card h1 {
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.intro-card h1 span {
+  font-size: 1rem;
+}
+
+.intro-card h2 {
+  font-size: 1rem;
 }
 
 .profile-border {
@@ -631,6 +654,10 @@ table > tbody > tr > td {
   .inner-container {
     width: 90%;
   }
+
+  .intro-card h1 {
+    font-size: 6rem;
+  }
 }
 
 /* small screens */
@@ -668,8 +695,17 @@ table > tbody > tr > td {
     padding: 0.3rem 0.7rem;
   }
 
+  .intro {
+    margin-top: 0rem;
+  }
+
   .intro-card {
     flex-direction: column;
+  }
+
+  .intro-card>div:nth-child(1) {
+    width: 300px;
+    margin: auto;
   }
 
   .intro-card .profile-card {

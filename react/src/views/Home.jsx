@@ -29,13 +29,13 @@ export default function Home() {
             <header className="light-section">
                 <div className="inner-container">
                     <div className="intro">
-                        <h1>React Laravel Developer</h1>
+                        {/* <h1>React Laravel Developer</h1> */}
                         <div className="intro-card">
+                            <div>
+                                <h1><span>Hello,</span><br />I'm Ilija</h1>
+                                <h2>A Web Developer focused on React and Laravel</h2>
+                            </div>
                             <ProfileCard />
-                            <p>
-                                “Always code as if the guy who ends up maintaining your code
-                                will be a violent psychopath who knows where you live”
-                            </p>
                         </div>
                     </div>
                 </div>
