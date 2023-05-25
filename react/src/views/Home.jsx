@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import {AnimationOnScroll} from 'react-animation-on-scroll'
 import axiosClient from '../axios-client';
+import ReactGA from 'react-ga';
+ReactGA.pageview(window.location.pathname);
 import ProfileCard from '../components/ProfileCard';
 
 export default function Home() {

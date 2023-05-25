@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import ReactGA from 'react-ga';
+ReactGA.initialize('G-0756V6HRCG');
 import Navbar from "./components/Navbar"
 import Footer from './components/Footer'
 import Dashboard from './views/Dashboard'

@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import axiosClient from "../axios-client";
 import { useStateContext } from "../contexts/ContextProvider";
+import ReactGA from 'react-ga';
+ReactGA.pageview(window.location.pathname);
 
 export default function Contact() {
 
